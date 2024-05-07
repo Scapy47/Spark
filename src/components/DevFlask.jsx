@@ -40,10 +40,10 @@ const DevFlask = ({ size }) => {
     const [color, setColor] = useState("")
     return (
         <div>
-            <IoFlask onClick= {
-                () => setColor(Col[Math.round(Math.random() * 31)])
-            }
-                size={size} color={color} />
+            <IoFlask size={size} color={color}
+                onClick={
+                    () => setColor(Col[Math.round(Math.random() * 31)])
+                }/>
         </div>
 
     )

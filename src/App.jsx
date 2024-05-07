@@ -10,10 +10,10 @@ function App() {
         <TopBar />
         <main className='grid h-full overflow-y-scroll'>
           <section className="w-full h-full border-solid border-2 border-sky-300 flex justify-center items-center">
-            <DevFlask size={"100px"}/>
+            <DevFlask size={"100px"} />
           </section>
           <section className="w-full h-full border-solid border-2 border-sky-300  flex justify-center items-center">
-            <DevFlask size={"100px"}/>
+            <DevFlask size={"100px"} />
           </section>
 
         </main>

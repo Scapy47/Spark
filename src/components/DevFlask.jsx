@@ -1,7 +1,7 @@
-import { React, useState } from 'react'
+import { useState } from 'react'
 import { IoFlask } from 'react-icons/io5'
 
-const DevFlask = ({ size }) => {
+const DevFlask = ([size]) => {
     const Col = [
         "aliceblue",
         "aquamarine",
@@ -43,7 +43,7 @@ const DevFlask = ({ size }) => {
             <IoFlask size={size} color={color}
                 onClick={
                     () => setColor(Col[Math.round(Math.random() * 31)])
-                }/>
+                } />
         </div>
 
     )

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import { useState } from 'react'
 
 const Sequence = () => {
     const study = [
@@ -20,7 +20,7 @@ const Sequence = () => {
     // }
     // Timer(study[0])
 
-    const [timer, setTimer] = useState(0)
+    const [timer] = useState(0)
     const Timer = (arr) => {
 
     }

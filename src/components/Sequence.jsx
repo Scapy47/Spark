@@ -3,6 +3,7 @@ import DiaLog from './DiaLog'
 
 const Sequence = () => {
     const [timer, setTimer] = useState(0)
+    const [showModal, setShowModal] = useState(false)
 
     const study = [
         ["Scoping", 5],
@@ -11,11 +12,10 @@ const Sequence = () => {
         ["questions", 1],
         ["active rest", 15]
     ]
-
-
+    
     return (
         <>
-            <DiaLog open={true}>
+            <DiaLog open={showModal}>
                 <h1>hello</h1>
             </DiaLog>
             {
@@ -26,6 +26,7 @@ const Sequence = () => {
                             <button className='mr-4 my-2 bg-zinc-200 size-16 rounded-full'
                                 onClick={() => {
                                     // TODO : a function that shows a timer in dialog and starts a countdown
+                                    setShowModal(true)
                                     e[1]
                                 }}
                             >{e[1]}</button>

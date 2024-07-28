@@ -1,6 +1,9 @@
 import { useState } from 'react'
+import DiaLog from './DiaLog'
 
 const Sequence = () => {
+    const [timer, setTimer] = useState(0)
+
     const study = [
         ["Scoping", 5],
         ["Maybe mapping", 10],
@@ -9,39 +12,28 @@ const Sequence = () => {
         ["active rest", 15]
     ]
 
-    // const [timer, setTimer] = useState(0)
-    // const Timer = (arr) => {
-    //     const timerTime = useRef(arr[1])
-    //     const Min = useRef(new Date().getMinutes())
-    //     setInterval(() => {
-    //         const currentTime = new Date().getMinutes()
-    //         setTimer((Min.current + timerTime.current) - currentTime)
-    //     }, 1000)
-    // }
-    // Timer(study[0])
-
-    const [timer] = useState(0)
-    const Timer = (arr) => {
-
-    }
-    Timer(study[0])
 
     return (
         <>
-
-            <p className='text-9xl'>{timer}</p>
+            <DiaLog open={true}>
+                <h1>hello</h1>
+            </DiaLog>
             {
-                // study.map((arr, index) => {
-                //     return (
-                //         <div className='flex justify-between w-full p-2' key={index}>
-                //             <p className='font-poppins text-xl'>{arr[0]}</p>
-                //             <p className='text-lg'>{arr[1]}</p>
-                //         </div>
-                //     )
-                // })
+                study.map((e) => {
+                    return (
+                        <div key={e[0]} className='flex items-center justify-between bg-red-50'>
+                            <p className='ml-2'>{e[0]}</p>
+                            <button className='mr-4 my-2 bg-zinc-200 size-16 rounded-full'
+                                onClick={() => {
+                                    // TODO : a function that shows a timer in dialog and starts a countdown
+                                    e[1]
+                                }}
+                            >{e[1]}</button>
+                        </div>
+                    )
+                })
             }
         </>
     )
 }
-
 export default Sequence

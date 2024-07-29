@@ -1,35 +1,56 @@
 import { useState } from 'react'
 import DiaLog from './DiaLog'
+// import tick from "../assets/icons/tick.svg";
 
 const Sequence = () => {
-    const [timer, setTimer] = useState(0)
+    // const [timer, setTimer] = useState(0)
     const [showModal, setShowModal] = useState(false)
 
     const study = [
-        ["Scoping", 5],
-        ["Maybe mapping", 10],
-        ["Evaluating by reading or learning", 30],
-        ["questions", 1],
-        ["active rest", 15]
+        // ["Scoping", 5, true],
+        // ["Maybe mapping", 10, false],
+        // ["Evaluating by reading or learning", 30, true],
+        // ["questions", 1],
+        // ["active rest", 15, false],
+        {
+            task: "Scoping",
+            time: {
+                hours: 0,
+                minutes: 5
+            },
+            done: true
+        }
     ]
-    
+
+    // code for component that is going to create sequence
+    // time shoude be a object with hour and minutes
+    // class Sequence {
+    //     constructor(task, time, done) {
+    //         this.task = task
+    //         this.time = time
+    //         this.done = done
+    //     }
+    // }
+
     return (
         <>
-            <DiaLog open={showModal}>
-                <h1>hello</h1>
+            <DiaLog className=""
+                open={showModal}>
+                <h1></h1>
             </DiaLog>
             {
                 study.map((e) => {
                     return (
-                        <div key={e[0]} className='flex items-center justify-between bg-red-50'>
-                            <p className='ml-2'>{e[0]}</p>
-                            <button className='mr-4 my-2 bg-zinc-200 size-16 rounded-full'
-                                onClick={() => {
-                                    // TODO : a function that shows a timer in dialog and starts a countdown
-                                    setShowModal(true)
-                                    e[1]
-                                }}
-                            >{e[1]}</button>
+                        <div key={e.task} className='flex items-center justify-between px-3'>
+                            <div>
+                                <p className='text-2xl font-'>{e.task}</p>
+                                {
+                                    e.time.hours === 0 ?
+                                        <p className='font-extralight'>{e.time.minutes} minutes</p>
+                                        : <p className='font-extralight'>{e.time.hours} hour and {e.time.minutes} minutes</p>
+                                }
+                            </div>
+                            <img className='' src="" alt={e.done && "Done"} />
                         </div>
                     )
                 })

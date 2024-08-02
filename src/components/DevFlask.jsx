@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { IoFlask } from 'react-icons/io5'
 
 const DevFlask = ([size]) => {
     const Col = [

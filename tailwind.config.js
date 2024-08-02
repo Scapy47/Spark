@@ -7,8 +7,11 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        Orbitron : ["Orbitron", "sans-serif"],
-        poppins : ["Poppins", "sans-serif"]
+        Orbitron: ["Orbitron", "sans-serif"],
+        poppins: ["Poppins", "sans-serif"]
+      },
+      backgroundImage: {
+        frame: "url(./assets/frame.svg)"
       }
     },
   },

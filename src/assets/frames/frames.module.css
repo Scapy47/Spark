@@ -1,0 +1,8 @@
+.v1Cyan {
+  border-image-source: url("./v1-cyan.svg");
+  border-image-slice: 54 10 43 16;
+  border-image-width: 20px 20px 20px 20px;
+  border-image-outset: 0px 0px 0px 0px;
+  border-image-repeat: stretch stretch;
+  border-style: solid;
+}

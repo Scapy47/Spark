@@ -3,7 +3,7 @@
   "appName": "spark",
   "webDir": "dist",
   "server": {
-    "url": "http://192.168.29.179:5173",
+    "url": "http://192.168.29.47:5173",
     "cleartext": true
   }
 }

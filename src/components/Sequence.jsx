@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import DiaLog from './DiaLog'
+import Modal from './Modal'
 // import tick from "../assets/icons/tick.svg";
 
 const Sequence = () => {
@@ -34,10 +34,10 @@ const Sequence = () => {
 
     return (
         <>
-            <DiaLog className=""
-                open={showModal}>
-                <h1></h1>
-            </DiaLog>
+            <Modal className="bg-white"
+                Styles="w-11/12 h-5/6"
+                open={true}>
+            </Modal>
             {
                 study.map((e) => {
                     return (

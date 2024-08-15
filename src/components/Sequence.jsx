@@ -1,17 +1,12 @@
-import { useState } from 'react'
+// import { useState } from 'react'
 import Modal from './Modal'
 // import tick from "../assets/icons/tick.svg";
 
 const Sequence = () => {
     // const [timer, setTimer] = useState(0)
-    const [showModal, setShowModal] = useState(false)
+    // const [showModal, setShowModal] = useState(false)
 
     const study = [
-        // ["Scoping", 5, true],
-        // ["Maybe mapping", 10, false],
-        // ["Evaluating by reading or learning", 30, true],
-        // ["questions", 1],
-        // ["active rest", 15, false],
         {
             task: "Scoping",
             time: {

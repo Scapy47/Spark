@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import frames from '../assets/frames/frames.module.css'
 
 
-const Modal = ({ children, open, Styles }) => {
+const Modal = ({ children, open, func, Styles }) => {
     const dialogRef = useRef(null)
 
     useEffect(() => {
@@ -23,6 +23,7 @@ const Modal = ({ children, open, Styles }) => {
                     e.clientY > Dimensions.bottom
                 ) {
                     e.target.close()
+                    func(false)
                 }
                 // console.log(Dimensions)
                 // console.log("x" + e.clientX, "y" + e.clientY)
@@ -33,7 +34,8 @@ const Modal = ({ children, open, Styles }) => {
 }
 Modal.propTypes = {
     children: PropTypes.any,
-    open: PropTypes.bool,
+    open: PropTypes.bool.isRequired,
+    func: PropTypes.func.isRequired,
     Styles: PropTypes.any,
 }
 

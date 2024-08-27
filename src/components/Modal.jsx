@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import frames from '../assets/frames/frames.module.css'
 
 
-const Modal = ({ children, open, func, Styles }) => {
+const Modal = ({ children, open, func, className }) => {
     const dialogRef = useRef(null)
 
     useEffect(() => {
@@ -11,7 +11,7 @@ const Modal = ({ children, open, func, Styles }) => {
     }, [open])
 
     return (
-        <dialog className={`${Styles} ${frames.v1Cyan}`}
+        <dialog className={`${className} ${frames.v1Cyan}`}
             ref={dialogRef}
             onClick={(e) => {
                 // if there is a click on backdrop close dialog
@@ -36,7 +36,7 @@ Modal.propTypes = {
     children: PropTypes.any,
     open: PropTypes.bool.isRequired,
     func: PropTypes.func.isRequired,
-    Styles: PropTypes.any,
+    className: PropTypes.any,
 }
 
 export default Modal

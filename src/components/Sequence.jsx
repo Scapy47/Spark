@@ -1,35 +1,34 @@
-import { useRef, useState } from 'react'
+import { useState } from 'react'
 import Modal from './Modal'
-import countdown from '../js/countdown.js'
-// import tick from "../assets/icons/tick.svg";
 
 const Sequence = () => {
     const [min, setMin] = useState(0)
     const [sec, setSec] = useState(0)
-    const CDown = useRef(new countdown())
+    // TODO change into one useState for displaying time
     const [showModal, setShowModal] = useState(false)
 
     const study = [
         {
-            task: "Scoping",
+            name: "Scoping",
             time: {
                 hours: 0,
                 minutes: 5
             },
-            done: true
+            status: false
         }
     ]
 
     const timer = () => {
+        let task
+        study.forEach(e => {
+            if (e.status === false) {
+                return task = e
+            }
+        })
+        setMin(task.time.minutes)
         setShowModal(true)
-        console.log("timerStartsnow");
-
-        if (sec >= 59) {
-            setSec(0)
-            setMin(prev => prev + 1)
-        }
+        // TODO use useEffect to run the timer
     }
-    
 
     return (
         <section className=''>
@@ -45,9 +44,9 @@ const Sequence = () => {
             {
                 study.map((e) => {
                     return (
-                        <div key={e.task} className=''>
+                        <div key={e.name} className=''>
                             <div>
-                                <p className=''>{e.task}</p>
+                                <p className=''>{e.name}</p>
                                 {
                                     e.time.hours === 0 ?
                                         <p className=''>

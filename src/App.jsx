@@ -6,8 +6,7 @@ function App() {
   return (
     <>
       <TopBar />
-      {/*  so modal is showing when it's realtive its a css problem */}
-      <main className='relative'>
+      <main>
         <Sequence />
       </main>
       <BottomBar />

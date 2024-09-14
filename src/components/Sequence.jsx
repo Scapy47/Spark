@@ -33,7 +33,7 @@ const Sequence = () => {
 
     return (
         <section className=''>
-            <Modal className="w-11/12 h-5/6 text-white"
+            <Modal className="w-11/12 h-5/6"
                 open={showModal}
                 func={setShowModal}
             >
@@ -45,15 +45,15 @@ const Sequence = () => {
             {
                 study.map((e) => {
                     return (
-                        <div key={e.task} className='flex items-center justify-between px-3'>
+                        <div key={e.task} className=''>
                             <div>
-                                <p className='text-2xl font-'>{e.task}</p>
+                                <p className=''>{e.task}</p>
                                 {
                                     e.time.hours === 0 ?
-                                        <p className='font-extralight'>
+                                        <p className=''>
                                             {e.time.minutes} minutes
                                         </p>
-                                        : <p className='font-extralight'>
+                                        : <p className=''>
                                             {e.time.hours} hour and {e.time.minutes} minutes
                                         </p>
                                 }
@@ -64,7 +64,7 @@ const Sequence = () => {
                 })
             }
             <button
-                className='absolute bottom-0 border-cyan-200 shadow-cyan-100 border-2 shadow-md '
+                className=''
                 onClick={timer}
             >start</button>
         </section>

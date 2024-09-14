@@ -2,9 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    color-scheme: dark;
+}
+
 @layer base {
     html {
-        @apply h-dvh bg-black text-white;
+        @apply h-dvh;
     }
 
     #root,

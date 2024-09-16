@@ -2,7 +2,7 @@
     TODO : add comments how it is working 
 */
 
-import { useReducer, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Hacktxt = ({ children = "ERROR", className }) => {

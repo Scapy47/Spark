@@ -1,45 +1,57 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Modal from './Modal'
 
 const Sequence = () => {
-    const [min, setMin] = useState(0)
-    const [sec, setSec] = useState(0)
-    // TODO change into one useState for displaying time
+    const [time, setTime] = useState(0)
+    const [play, setPlay] = useState(true)
     const [showModal, setShowModal] = useState(false)
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            if (showModal && play) {
+                setTime(pre => pre - 1)
+            }
+        }, 1000);
+
+        return () => {
+            clearInterval(interval)
+        }
+    }, [showModal, play])
+
+
 
     const study = [
         {
             name: "Scoping",
             time: {
-                hours: 0,
-                minutes: 5
+                hour: 1,
+                min: 30,
             },
             status: false
         }
     ]
 
+
+
     const timer = () => {
+
         let task
-        study.forEach(e => {
+        study.forEach((e) => {
             if (e.status === false) {
                 return task = e
             }
         })
-        setMin(task.time.minutes)
+        if (!time) {
+            setTime((task.time.min + task.time.hour * 60) * 60)
+        }
         setShowModal(true)
-        // TODO use useEffect to run the timer
     }
 
     return (
         <section className=''>
-            <Modal className="w-11/12 h-5/6"
-                open={showModal}
-                func={setShowModal}
-            >
-                <h1>
-                    <p>sec {sec}</p>
-                    <p>min {min}</p>
-                </h1>
+            <Modal className="w-11/12 h-5/6" open={showModal} func={setShowModal}>
+                <h1>{Math.round(time / 60)}</h1>
+                <button onClick={() => setPlay(false)}>STOP</button>
             </Modal>
             {
                 study.map((e) => {
@@ -50,10 +62,10 @@ const Sequence = () => {
                                 {
                                     e.time.hours === 0 ?
                                         <p className=''>
-                                            {e.time.minutes} minutes
+                                            {e.time.min} minutes
                                         </p>
                                         : <p className=''>
-                                            {e.time.hours} hour and {e.time.minutes} minutes
+                                            {e.time.hour} hour and {e.time.min} minutes
                                         </p>
                                 }
                             </div>

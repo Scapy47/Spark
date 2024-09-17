@@ -2,12 +2,16 @@
     TODO : add comments how it is working 
 */
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 
 const Hacktxt = ({ children = "ERROR", className }) => {
     const inTXT = useRef(children);
     const [txt, setTxt] = useState(children);
+
+    useEffect(() => {
+        animate()
+    })
 
     const randomChar = () => {
         const chars = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
@@ -29,12 +33,11 @@ const Hacktxt = ({ children = "ERROR", className }) => {
                 clearInterval(intervalID)
             }
             runCount.current += 1 / 3
-            console.log(runCount.current)
         }, 30)
     }
 
 
-    return <p onMouseOver={animate} className={className}>{txt}</p>
+    return <p onMouseOver={animate} className={`uppercase ${className}`}>{txt}</p>
 }
 
 Hacktxt.propTypes = {

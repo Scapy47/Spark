@@ -1,10 +1,22 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Modal from './Modal'
 
 const Sequence = () => {
-    const [time, setTime] = useState(0)
-    const [play, setPlay] = useState(true)
+    const [time, setTime] = useState(0)     // time is stored in second
+    const totolTime = useRef(0)
     const [showModal, setShowModal] = useState(false)
+    const [play, setPlay] = useState(true)
+
+    const study = [
+        {
+            name: "Scoping",
+            time: {
+                hour: 0,
+                min: 1,
+            },
+            status: false
+        }
+    ]
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -13,28 +25,16 @@ const Sequence = () => {
             }
         }, 1000);
 
+        if (time <= 0) {
+            clearInterval(interval)
+        }
+
         return () => {
             clearInterval(interval)
         }
-    }, [showModal, play])
-
-
-
-    const study = [
-        {
-            name: "Scoping",
-            time: {
-                hour: 1,
-                min: 30,
-            },
-            status: false
-        }
-    ]
-
-
+    }, [showModal, play, time])
 
     const timer = () => {
-
         let task
         study.forEach((e) => {
             if (e.status === false) {
@@ -43,6 +43,7 @@ const Sequence = () => {
         })
         if (!time) {
             setTime((task.time.min + task.time.hour * 60) * 60)
+            totolTime.current = (task.time.min + task.time.hour * 60) * 60
         }
         setShowModal(true)
     }
@@ -51,7 +52,8 @@ const Sequence = () => {
         <section className=''>
             <Modal className="w-11/12 h-5/6" open={showModal} func={setShowModal}>
                 <h1>{Math.round(time / 60)}</h1>
-                <button onClick={() => setPlay(false)}>STOP</button>
+                <button onClick={() => play ? setPlay(false) : setPlay(true)}>STOP</button>
+                <p>{Math.round(time / totolTime.current * 100)}%</p>
             </Modal>
             {
                 study.map((e) => {
@@ -74,10 +76,7 @@ const Sequence = () => {
                     )
                 })
             }
-            <button
-                className=''
-                onClick={timer}
-            >start</button>
+            <button className='' onClick={timer}>start</button>
         </section>
     )
 }

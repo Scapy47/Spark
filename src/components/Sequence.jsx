@@ -48,12 +48,22 @@ const Sequence = () => {
         setShowModal(true)
     }
 
+    const percentage = Math.round(time / totolTime.current * 100)
+
     return (
         <section className=''>
-            <Modal className="w-11/12 h-5/6" open={showModal} func={setShowModal}>
-                <h1>{Math.round(time / 60)}</h1>
-                <button onClick={() => play ? setPlay(false) : setPlay(true)}>STOP</button>
-                <p>{Math.round(time / totolTime.current * 100)}%</p>
+            <Modal className="w-fit h-fit" open={showModal} func={setShowModal}>
+                <div className="grid place-items-center">
+                    <div id='redial_progress' className='rounded-full w-72 h-72 grid place-items-center m-6'
+                        style={{ background: `conic-gradient(yellow ${percentage}%, 0, transparent)` }}>
+                        <div className="rounded-full w-64 h-64 grid place-items-center bg-blue-950">
+                            <div className='flex flex-col place-items-center'>
+                                <p className='font-bold text-6xl flex items-center font-Orbitron'>{percentage}<p className="font-thin">%</p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <button onClick={() => play ? setPlay(false) : setPlay(true)}>STOP</button>
+                </div>
             </Modal>
             {
                 study.map((e) => {
@@ -65,8 +75,8 @@ const Sequence = () => {
                                     e.time.hours === 0 ?
                                         <p className=''>
                                             {e.time.min} minutes
-                                        </p>
-                                        : <p className=''>
+                                        </p> :
+                                        <p className=''>
                                             {e.time.hour} hour and {e.time.min} minutes
                                         </p>
                                 }

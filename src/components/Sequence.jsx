@@ -54,9 +54,9 @@ const Sequence = () => {
         <section className=''>
             <Modal className="w-fit h-fit" open={showModal} func={setShowModal}>
                 <div className="grid place-items-center">
-                    <div id='redial_progress' className='rounded-full w-72 h-72 grid place-items-center m-6'
+                    <div id='redial_progress' className='rounded-full min-w-60 max-w-72 min-h-60 max-h-72 grid place-items-center m-6'
                         style={{ background: `conic-gradient(yellow ${percentage}%, 0, transparent)` }}>
-                        <div className="rounded-full w-64 h-64 grid place-items-center bg-blue-950">
+                        <div className="rounded-full w-5/6 h-5/6 grid place-items-center bg-blue-950">
                             <div className='flex flex-col place-items-center'>
                                 <p className='font-bold text-6xl flex items-center font-Orbitron'>{percentage}<p className="font-thin">%</p></p>
                             </div>

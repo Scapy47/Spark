@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import Modal from './Modal'
+import CreateSequence from './CreateSequence'
 
 const Sequence = () => {
     const [time, setTime] = useState(0)     // time is stored in second
@@ -52,13 +53,13 @@ const Sequence = () => {
 
     return (
         <section className=''>
-            <Modal className="w-fit h-fit" open={showModal} func={setShowModal}>
+            <Modal className="w-fit h-fit" Show={showModal} func={setShowModal}>
                 <div className="grid place-items-center">
                     <div id='redial_progress' className='rounded-full min-w-60 max-w-72 min-h-60 max-h-72 grid place-items-center m-6'
                         style={{ background: `conic-gradient(yellow ${percentage}%, 0, transparent)` }}>
                         <div className="rounded-full w-5/6 h-5/6 grid place-items-center bg-blue-950">
                             <div className='flex flex-col place-items-center'>
-                                <p className='font-bold text-6xl flex items-center font-Orbitron'>{percentage}<p className="font-thin">%</p></p>
+                                <span className='font-bold text-6xl flex items-center font-Orbitron'>{percentage}<span className="font-thin">%</span></span>
                             </div>
                         </div>
                     </div>
@@ -70,15 +71,15 @@ const Sequence = () => {
                     return (
                         <div key={e.name} className=''>
                             <div>
-                                <p className=''>{e.name}</p>
+                                <span className='block'>{e.name}</span>
                                 {
                                     e.time.hours === 0 ?
-                                        <p className=''>
+                                        <span className='block'>
                                             {e.time.min} minutes
-                                        </p> :
-                                        <p className=''>
+                                        </span> :
+                                        <span className='block'>
                                             {e.time.hour} hour and {e.time.min} minutes
-                                        </p>
+                                        </span>
                                 }
                             </div>
                             {/* icon for showing if its done or not */}
@@ -87,6 +88,7 @@ const Sequence = () => {
                 })
             }
             <button className='' onClick={timer}>start</button>
+            <CreateSequence />
         </section>
     )
 }

@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import frames from '../assets/frames/frames.module.css'
 
 
-const Modal = ({ children, open, func, className }) => {
+const Modal = ({ children, Show, func, className }) => {
     const dialogRef = useRef(null)
 
     useEffect(() => {
-        open ? dialogRef.current.showModal() : dialogRef.current.close()
-    }, [open])
+        Show ? dialogRef.current.showModal() : dialogRef.current.close()
+    }, [Show])
 
     return (
         <dialog className={`${className} ${frames.v1Cyan}`}
@@ -34,7 +34,7 @@ const Modal = ({ children, open, func, className }) => {
 }
 Modal.propTypes = {
     children: PropTypes.any,
-    open: PropTypes.bool.isRequired,
+    Show: PropTypes.bool.isRequired,
     func: PropTypes.func.isRequired,
     className: PropTypes.any,
 }

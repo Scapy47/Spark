@@ -3,12 +3,12 @@ name: Android CI
 on:
   push:
     branches: [ "main" ]
-    paths:
-      - "android/**"
+    # paths:
+    #   - "android/**"
   pull_request:
     branches: [ "main" ]
-    paths:
-      - "android/**"
+    # paths:
+    #   - "android/**"
 
 jobs:
   build:
@@ -26,6 +26,8 @@ jobs:
 
     - name: Download dependencies
       run: npm install
+    - name: staring webapp build 🚀
+      run: npm run build && npm run sync
     - name: staring android build 🚀
       run: cd android && chmod +x gradlew && ./gradlew assembleDebug
       

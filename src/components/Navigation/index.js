@@ -1,5 +1,5 @@
-import TopBar from './TopBar'
 import BottomBar from './BottomBar'
+import TopBar from './TopBar'
 
 
 export {

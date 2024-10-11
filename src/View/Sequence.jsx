@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import Modal from './Modal'
-import CreateSequence from './CreateSequence'
+import Modal from '../components/Modal'
+import CreateSequence from '../components/CreateSequence'
 
 const Sequence = () => {
     const [time, setTime] = useState(0)     // time is stored in second

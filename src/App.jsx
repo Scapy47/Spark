@@ -1,6 +1,6 @@
-import TopBar from './components/TopBar'
-import Sequence from './components/Sequence'
-import BottomBar from "./components/BottomBar";
+import { TopBar, BottomBar } from './components/Navigation'
+import Sequence from './View/Sequence'
+
 // import Hacktxt from './components/Hacktxt';
 
 function App() {

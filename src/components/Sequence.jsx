@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
-import Modal from '../components/Modal'
-import CreateSequence from '../components/CreateSequence'
+import Modal from './Modal'
+import CreateSequence from './CreateSequence'
+import { Link } from 'react-router-dom'
 
 const Sequence = () => {
     const [time, setTime] = useState(0)     // time is stored in second
@@ -89,6 +90,8 @@ const Sequence = () => {
             }
             <button className='' onClick={timer}>start</button>
             <CreateSequence />
+            <br />
+            <Link to={"/hello-world"} replace>HELLO WORLD</Link>
         </section>
     )
 }

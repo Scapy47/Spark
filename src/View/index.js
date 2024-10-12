@@ -1,4 +1,1 @@
-import Sequence from "./Sequence";
-
-
-export { Sequence }
+export {default as Sequence} from "../components/Sequence";

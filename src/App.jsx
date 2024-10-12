@@ -1,20 +1,21 @@
 import { TopBar, BottomBar } from './components/Navigation'
-import { Sequence } from './View'
+import Sequence from './components/Sequence'
 // import Hacktxt from './components/Hacktxt'
 import {
-  createBrowserRouter,
+  createHashRouter,
+  Link,
   RouterProvider,
 } from "react-router-dom";
 
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Sequence />,
   },
   {
     path: "/hello-world",
-    element: <span className="text-8xl">hello world</span>,
+    element: <span className="text-8xl">hello world <Link replace to={"/"}>HOME</Link></span>,
   },
 ]);
 

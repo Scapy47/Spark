@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-const useStore = create((set) => ({
+export const useStore = create((set) => ({
     navMap: "",
-    mapNavigation: (screen) => set(state => ({ navMap: screen }))
+    mapNavigation: screen => set({ navMap: screen }),
 }))

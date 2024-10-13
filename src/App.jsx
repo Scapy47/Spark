@@ -1,5 +1,5 @@
 import { TopBar, Dock } from './components/Navigation'
-import Sequence from './View'
+import { Sequence } from './View'
 import {
   createHashRouter,
   Link,

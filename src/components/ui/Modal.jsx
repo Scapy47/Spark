@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react"
 import PropTypes from 'prop-types'
-import frames from '../assets/frames/frames.module.css'
+import frames from '../../assets/frames/frames.module.css'
 
 
 const Modal = ({ children, Show, func, className }) => {

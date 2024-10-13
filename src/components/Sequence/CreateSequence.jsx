@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "./Modal"
+import Modal from "../ui/Modal"
 
 const CreateSequence = () => {
   const [showModal, setShowModal] = useState(false)

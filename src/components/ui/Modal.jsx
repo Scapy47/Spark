@@ -23,7 +23,9 @@ const Modal = ({ children, Show, func, className }) => {
                     e.clientY > Dimensions.bottom
                 ) {
                     e.target.close()
-                    func(false)
+                    try {
+                        func(false)
+                    } catch { null }
                 }
                 // console.log(Dimensions)
                 // console.log("x" + e.clientX, "y" + e.clientY)
@@ -35,7 +37,7 @@ const Modal = ({ children, Show, func, className }) => {
 Modal.propTypes = {
     children: PropTypes.any,
     Show: PropTypes.bool.isRequired,
-    func: PropTypes.func.isRequired,
+    func: PropTypes.func,
     className: PropTypes.any,
 }
 

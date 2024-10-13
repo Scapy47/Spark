@@ -1,6 +1,5 @@
-import { TopBar, BottomBar } from './components/Navigation'
-import Sequence from './components/Sequence'
-// import Hacktxt from './components/Hacktxt'
+import { TopBar, Dock } from './components/Navigation'
+import Sequence from './View'
 import {
   createHashRouter,
   Link,
@@ -26,7 +25,7 @@ function App() {
       <main>
         <RouterProvider router={router} />
       </main>
-      <BottomBar />
+      <Dock />
     </>
   )
 }

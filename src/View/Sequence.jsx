@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import Modal from './Modal'
-import CreateSequence from './CreateSequence'
+import Modal from '../components/ui/Modal'
+import CreateSequence from '../components/CreateSequence'
 import { Link } from 'react-router-dom'
 
 const Sequence = () => {
@@ -71,19 +71,9 @@ const Sequence = () => {
                 study.map((e) => {
                     return (
                         <div key={e.name} className=''>
-                            <div>
-                                <span className='block'>{e.name}</span>
-                                {
-                                    e.time.hours === 0 ?
-                                        <span className='block'>
-                                            {e.time.min} minutes
-                                        </span> :
-                                        <span className='block'>
-                                            {e.time.hour} hour and {e.time.min} minutes
-                                        </span>
-                                }
+                            <div className=''>
+                                <span className='text-xl'>{e.name.charAt(0).toUpperCase() + e.name.slice(1)}</span>
                             </div>
-                            {/* icon for showing if its done or not */}
                         </div>
                     )
                 })

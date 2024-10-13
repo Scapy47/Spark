@@ -1,1 +1,1 @@
-export {default as Sequence} from "../components/Sequence";
+export {default as Sequence} from "./Sequence";

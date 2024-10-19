@@ -7,7 +7,7 @@ const CreateSequence = () => {
   return (
     <>
       <Modal Show={true} func={setShowModal} className="w-full h-4/6">
-
+      
       </Modal>
       <button onClick={() => setShowModal(true)}>hello</button>
     </>

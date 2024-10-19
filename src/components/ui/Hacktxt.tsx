@@ -3,9 +3,8 @@
 */
 
 import { useEffect, useRef, useState } from 'react';
-import PropTypes from 'prop-types';
 
-const Hacktxt = ({ children = "ERROR", className }) => {
+const Hacktxt = ({ children = "ERROR", className }: { className: String, children: string }) => {
     const inTXT = useRef(children);
     const [txt, setTxt] = useState(children);
 
@@ -40,8 +39,4 @@ const Hacktxt = ({ children = "ERROR", className }) => {
     return <p onMouseOver={animate} className={`uppercase ${className}`}>{txt}</p>
 }
 
-Hacktxt.propTypes = {
-    children: PropTypes.string,
-    className: PropTypes.any,
-}
 export default Hacktxt;

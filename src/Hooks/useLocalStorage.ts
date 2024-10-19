@@ -3,9 +3,9 @@ import { useEffect, useState } from 'react'
 
 export default function useLocalStorage(key: string, initialValue: any) {
     const [value, setValue] = useState(() => {
-        const savedValue = JSON.parse(localStorage.getItem(key))
-        if (savedValue) return savedValue
-        return initialValue
+        const savedValue = JSON.parse(localStorage.getItem(key) || "{}")
+        savedValue ? savedValue : initialValue
+
     })
 
     useEffect(() => {

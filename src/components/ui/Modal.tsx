@@ -1,9 +1,16 @@
 import { useEffect, useRef } from "react"
-import PropTypes from 'prop-types'
 import frames from '../../assets/frames/frames.module.css'
 
 
-const Modal = ({ children, Show, func, className }) => {
+interface Props {
+    children: any,
+    Show: boolean,
+    func: Function | null,
+    className: any,
+}
+
+
+const Modal = ({ children, Show, func, className }: Props) => {
     const dialogRef = useRef(null)
 
     useEffect(() => {
@@ -23,9 +30,9 @@ const Modal = ({ children, Show, func, className }) => {
                     e.clientY > Dimensions.bottom
                 ) {
                     e.target.close()
-                    try {
-                        func(false)
-                    } catch { null }
+                    if (func !== null) {
+                        func()
+                    }
                 }
                 // console.log(Dimensions)
                 // console.log("x" + e.clientX, "y" + e.clientY)
@@ -34,11 +41,6 @@ const Modal = ({ children, Show, func, className }) => {
         </dialog>
     )
 }
-Modal.propTypes = {
-    children: PropTypes.any,
-    Show: PropTypes.bool.isRequired,
-    func: PropTypes.func,
-    className: PropTypes.any,
-}
+
 
 export default Modal

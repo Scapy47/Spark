@@ -9,9 +9,9 @@ const CreateSequence = () => {
       <Modal Show={true} func={setShowModal} className="w-full h-4/6">
       
       </Modal>
-      <button onClick={() => setShowModal(true)}>hello</button>
+      <button className="btn btn-outline btn-accent" onClick={() => setShowModal(true)}>hello</button>
     </>
   )
-}
+} 
 
 export default CreateSequence

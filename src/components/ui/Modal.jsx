@@ -1,16 +1,7 @@
 import { useEffect, useRef } from "react"
 import frames from '../../assets/frames/frames.module.css'
 
-
-interface Props {
-    children: any,
-    Show: boolean,
-    func: Function | null,
-    className: any,
-}
-
-
-const Modal = ({ children, Show, func, className }: Props) => {
+const Modal = ({ children, Show, func, className }) => {
     const dialogRef = useRef(null)
 
     useEffect(() => {

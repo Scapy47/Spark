@@ -4,7 +4,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-const Hacktxt = ({ children = "ERROR", className }: { className: String, children: string }) => {
+const Hacktxt = ({ children = "ERROR", className }) => {
     const inTXT = useRef(children);
     const [txt, setTxt] = useState(children);
 

@@ -23,4 +23,8 @@
     }
 }
 
+#root {
+    @apply h-full grid grid-rows-8
+}
+
 @layer components {}

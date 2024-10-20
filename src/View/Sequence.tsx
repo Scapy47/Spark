@@ -4,7 +4,7 @@ import CreateSequence from '../components/Sequence/CreateSequence'
 import { Link } from 'react-router-dom'
 
 const Sequence = () => {
-    const [time, setTime] = useState(0)     // time is stored in second
+    const [time, setTime] = useState(0)
     const totolTime = useRef(0)
     const [showModal, setShowModal] = useState(false)
     const [play, setPlay] = useState(true)
@@ -36,17 +36,18 @@ const Sequence = () => {
         }
     }, [showModal, play, time])
 
+    // create a timer for every obj in array that has status of false
     const timer = () => {
-        let task
         study.forEach((e) => {
             if (e.status === false) {
-                return task = e
+                if (!time) {
+                    // time in seconds for accuracy 
+                    setTime((e.time.min + e.time.hour * 60) * 60)
+                    totolTime.current = (e.time.min + e.time.hour * 60) * 60
+                }
+                return
             }
         })
-        if (!time) {
-            setTime((task.time.min + task.time.hour * 60) * 60)
-            totolTime.current = (task.time.min + task.time.hour * 60) * 60
-        }
         setShowModal(true)
     }
 

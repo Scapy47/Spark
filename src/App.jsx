@@ -1,4 +1,5 @@
 import { TopBar, Dock } from './components/Navigation'
+import CreateSequence from './components/Sequence/CreateSequence';
 import { Sequence } from './View'
 import {
   createHashRouter,
@@ -24,6 +25,7 @@ function App() {
       <TopBar />
       <main>
         <RouterProvider router={router} />
+        <CreateSequence/>
       </main>
       <Dock />
     </>

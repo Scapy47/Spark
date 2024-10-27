@@ -21,6 +21,11 @@
     dialog {
         @apply select-none backdrop:backdrop-blur-3xl backdrop-blur-3xl bg-transparent focus:outline-none rounded-3xl p-4;
     }
+
+    @font-face {
+        font-family: Orbitron;
+        src: url(./assets/fonts/Orbitron/Orbitron-VariableFont_wght.ttf);
+    }
 }
 
 #root {

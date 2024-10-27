@@ -1,3 +1,5 @@
+import PropType from "prop-types";
+
 const TopBar = ({ theme = "#000000" }) => {
 
     return (
@@ -5,6 +7,10 @@ const TopBar = ({ theme = "#000000" }) => {
             <meta name="theme-color" content={theme} />
         </header>
     )
+}
+
+TopBar.protoTypes = {
+    theme: PropType.string
 }
 
 export default TopBar

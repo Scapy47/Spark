@@ -6,7 +6,7 @@ const CreateSequence = () => {
 
   return (
     <>
-      <Modal Show={showModal} func={setShowModal} className="w-full h-4/6">
+      <Modal Show={showModal} func={setShowModal} className="w-full h-full">
         <header className="mt-4">
           <span className="text-2xl font-Orbitron text-primary">Create sequence</span>
         </header>

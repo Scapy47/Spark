@@ -25,7 +25,6 @@ function App() {
       <TopBar />
       <main>
         <RouterProvider router={router} />
-        <CreateSequence/>
       </main>
       <Dock />
     </>

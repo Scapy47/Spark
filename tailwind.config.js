@@ -19,11 +19,11 @@ export default {
   },
   daisyui: {
     themes: [
- ,     {
+      {
         mytheme: {
           "primary": "cyan",
-          "secondary": "#ff073a",
-          "accent": "#0500ff",
+          "secondary": "yellow",
+          "accent": "red",
           "neutral": "#120905",
           "base-100": "#fff9ef",
           "info": "#0099c3",

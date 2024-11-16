@@ -3,33 +3,33 @@
 @tailwind utilities;
 
 :root {
-    user-select: none;
-    color-scheme: dark;
+  user-select: none;
+  color-scheme: dark;
 }
 
 @layer base {
-    html {
-        @apply h-dvh;
-    }
+  html {
+    @apply h-dvh;
+  }
 
-    body {
-        @apply h-full;
-        background: radial-gradient(125% 125% at 50% 10%, black 40%, #630330 100%);
-    }
+  body {
+    @apply h-full;
+    background: radial-gradient(125% 125% at 50% 10%, black 40%, #630330 100%);
+  }
 
+  dialog {
+    @apply select-none backdrop:backdrop-blur-3xl backdrop-blur-3xl bg-transparent focus:outline-none rounded-3xl p-4;
+  }
 
-    dialog {
-        @apply select-none backdrop:backdrop-blur-3xl backdrop-blur-3xl bg-transparent focus:outline-none rounded-3xl p-4;
-    }
-
-    @font-face {
-        font-family: Orbitron;
-        src: url(./assets/fonts/Orbitron/Orbitron-VariableFont_wght.ttf);
-    }
+  @font-face {
+    font-family: Orbitron;
+    src: url(./assets/fonts/Orbitron/Orbitron-VariableFont_wght.ttf);
+  }
 }
 
 #root {
-    @apply h-full grid grid-rows-8
+  @apply h-full grid grid-rows-8;
 }
 
-@layer components {}
+@layer components {
+}

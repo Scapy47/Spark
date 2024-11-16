@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import Modal from '../components/ui/Modal'
-import CreateSequence from '../components/Sequence/CreateSequence'
+import Modal from '@/components/ui/Modal'
+import CreateSequence from './CreateSequence'
 import { Link } from 'react-router-dom'
 
 const Sequence = () => {

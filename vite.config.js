@@ -4,12 +4,17 @@ import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  resolve: {
+    alias: {
+      "@": "/src",
+    },
+  },
   plugins: [
     react(),
     VitePWA({
       registerType: "prompt", // Prompt the user to install the PWA in development
       manifest: {
-        orientation : "any",
+        orientation: "any",
         theme_color: "#ffffff",
         background_color: "black",
         icons: [

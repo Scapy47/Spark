@@ -1,24 +1,13 @@
 import { useEffect, useRef, useState } from 'react'
 import Modal from '@/components/ui/Modal'
 import CreateSequence from './components/CreateSequence'
-import { Link } from 'react-router-dom'
+import * as d3 from "d3"
 
 const Sequence = () => {
     const [time, setTime] = useState(0)
     const totolTime = useRef(0)
     const [showModal, setShowModal] = useState(false)
     const [play, setPlay] = useState(true)
-
-    const study = [
-        {
-            name: "Scoping",
-            time: {
-                hour: 0,
-                min: 1,
-            },
-            status: false
-        }
-    ]
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -35,6 +24,18 @@ const Sequence = () => {
             clearInterval(interval)
         }
     }, [showModal, play, time])
+
+    // dummy data
+    const study = [
+        {
+            name: "Scoping",
+            time: {
+                hour: 0,
+                min: 1,
+            },
+            status: false
+        }
+    ]
 
     // create a timer for every obj in array that has status of false
     const timer = () => {
@@ -53,6 +54,15 @@ const Sequence = () => {
 
     const percentage = Math.round(time / totolTime.current * 100)
 
+
+    class createMap {
+        constructor(dimension = ["100vh", "100vw"]) {
+            this.x = dimension[0]
+            this.y = dimension[1]
+        }
+    }
+
+
     return (
         <section className=''>
             <Modal className="w-fit h-fit" Show={showModal} func={setShowModal}>
@@ -68,7 +78,7 @@ const Sequence = () => {
                     <button onClick={() => play ? setPlay(false) : setPlay(true)}>STOP</button>
                 </div>
             </Modal>
-            {
+            {/* {
                 study.map((e) => {
                     return (
                         <div key={e.name} className=''>
@@ -78,11 +88,12 @@ const Sequence = () => {
                         </div>
                     )
                 })
-            }
+            } */}
+            <div>
+                <h1 className='text-white font-bold'>healejal</h1>
+            </div>
             <button className='' onClick={timer}>start</button>
-            <CreateSequence />
-            <br />
-            <Link to={"/hello-world"} replace>HELLO WORLD</Link>
+            {/* <CreateSequence /> */}
         </section>
     )
 }

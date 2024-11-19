@@ -1,11 +1,18 @@
-import { useEffect, useRef } from "react"
+import { ReactNode, useEffect, useRef } from "react"
 import frames from '../../assets/frames/frames.module.css'
 
-const Modal = ({ children, Show, func, className }) => {
+interface props {
+    children: ReactNode,
+    Show: boolean,
+    func: Function,
+    className: string
+}
+
+const Modal = ({ children, Show, func, className }: props) => {
     const dialogRef = useRef(null)
 
     useEffect(() => {
-        Show ? dialogRef.current.showModal() : dialogRef.current.close()
+        Show ? dialogRef?.current?.showModal() : dialogRef?.current?.close()
     }, [Show])
 
     return (

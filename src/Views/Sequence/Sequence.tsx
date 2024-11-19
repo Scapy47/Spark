@@ -56,9 +56,13 @@ const Sequence = () => {
 
 
     class createMap {
+        x: string | number
+        y: string | number
+        simulation: any
         constructor(dimension = ["100vh", "100vw"]) {
             this.x = dimension[0]
             this.y = dimension[1]
+            this.simulation = d3.forceSimulation()
         }
     }
 

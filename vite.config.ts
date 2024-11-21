@@ -1,16 +1,13 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react-swc'
+import tsconfigPaths from "vite-tsconfig-paths";
 import { VitePWA } from "vite-plugin-pwa";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  resolve: {
-    alias: {
-      "@": "/src",
-    },
-  },
   plugins: [
     react(),
+    tsconfigPaths(),
     VitePWA({
       registerType: "prompt", // Prompt the user to install the PWA in development
       manifest: {
@@ -30,17 +27,11 @@ export default defineConfig({
             type: "image/png",
             purpose: "maskable"
           },
-          // {
-          //   src: "vite.svg",
-          //   sizes: "any",
-          //   type: "image/svg+xml",
-          //   purpose: "maskable"
-          // }
         ]
       },
       devOptions: {
         enabled: true // Enable PWA in development mode for localhost
       }
-    })
+    }),
   ],
 })

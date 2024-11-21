@@ -59,10 +59,11 @@ const Sequence = () => {
         x: string | number
         y: string | number
         simulation: any
+
         constructor(dimension = ["100vh", "100vw"]) {
             this.x = dimension[0]
             this.y = dimension[1]
-            this.simulation = d3.forceSimulation()
+            this.simulation
         }
     }
 
@@ -94,10 +95,9 @@ const Sequence = () => {
                 })
             } */}
             <div>
-                <h1 className='text-white font-bold'>healejal</h1>
             </div>
             <button className='' onClick={timer}>start</button>
-            {/* <CreateSequence /> */}
+            <CreateSequence />
         </section>
     )
 }

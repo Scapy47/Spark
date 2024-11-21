@@ -4,7 +4,7 @@
 
 :root {
   user-select: none;
-  color-scheme: dark;
+  color-scheme: dark light;
 }
 
 @layer base {

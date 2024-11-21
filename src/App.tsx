@@ -1,6 +1,6 @@
 // import { TopBar, Dock } from '@/components/Navigation'
 
-import Sequence from "@/Views/Sequence/Sequence"
+import Sequence from "./Views/Sequence/Sequence"
 
 
 function App() {

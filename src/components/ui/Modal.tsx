@@ -4,15 +4,19 @@ import frames from '../../assets/frames/frames.module.css'
 interface props {
     children: ReactNode,
     Show: boolean,
-    func: Function,
+    func?: () => void,
     className: string
 }
 
 const Modal = ({ children, Show, func, className }: props) => {
-    const dialogRef = useRef(null)
+    const dialogRef = useRef<HTMLDialogElement | null>(null)
 
     useEffect(() => {
-        Show ? dialogRef?.current?.showModal() : dialogRef?.current?.close()
+        if (Show) {
+            dialogRef.current?.showModal()
+        } else {
+            dialogRef.current?.close()
+        }
     }, [Show])
 
     return (
@@ -27,7 +31,8 @@ const Modal = ({ children, Show, func, className }: props) => {
                     e.clientY < Dimensions.top ||
                     e.clientY > Dimensions.bottom
                 ) {
-                    e.target.close()
+                    const target = e.target as HTMLDialogElement
+                    target.close()
                     if (func !== null) {
                         func()
                     }

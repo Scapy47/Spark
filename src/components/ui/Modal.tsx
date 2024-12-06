@@ -1,5 +1,4 @@
 import { ReactNode, useEffect, useRef } from "react"
-import frames from '../../assets/frames/frames.module.css'
 
 interface props {
     children: ReactNode,
@@ -20,7 +19,7 @@ const Modal = ({ children, Show, func, className }: props) => {
     }, [Show])
 
     return (
-        <dialog className={`${className} ${frames.v1Cyan}`}
+        <dialog className={className}
             ref={dialogRef}
             onClick={(e) => {
                 // if there is a click on backdrop close dialog
@@ -33,12 +32,8 @@ const Modal = ({ children, Show, func, className }: props) => {
                 ) {
                     const target = e.target as HTMLDialogElement
                     target.close()
-                    if (func !== null) {
-                        func()
-                    }
+                    func?.()
                 }
-                // console.log(Dimensions)
-                // console.log("x" + e.clientX, "y" + e.clientY)
             }}>
             {children}
         </dialog>

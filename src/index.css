@@ -18,7 +18,7 @@
   }
 
   dialog {
-    @apply select-none backdrop:backdrop-blur-3xl backdrop-blur-3xl bg-transparent focus:outline-none rounded-3xl p-4;
+    @apply select-none backdrop:backdrop-blur-3xl backdrop-blur-3xl bg-transparent focus:outline-none rounded-3xl p-4 v1Cyan;
   }
 
   @font-face {
@@ -31,5 +31,18 @@
   @apply h-full grid grid-rows-8;
 }
 
-@layer components {
+@layer components {}
+
+@layer utilities {
+
+  /* custom frames */
+
+  .v1Cyan {
+    border-image-source: url('data:image/svg+xml,<svg width="209.61835mm" height="134.84412mm" viewBox="0 0 209.61835 134.84411" version="1.1" id="svg1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><defs id="defs1" ><rect x="54.534885" y="292.98346" width="468.67065" height="364.43454" id="rect1" /></defs><g id="layer1" transform="translate(-0.20578949,-90.426164)" style="fill:%2300ffff;stroke:%2300ffff;stroke-opacity:1" ><text xlink:space="preserve" transform="scale(0.26458333)" id="text1" style="white-space:pre;shape-inside:url(%23rect1);fill:%2300ffff;stroke:%2300ffff;stroke-opacity:1" /><path id="rect4" style="fill:%2300ffff;fill-opacity:0.0030005;stroke:%2300ffff;stroke-width:1.008;stroke-dasharray:none;stroke-opacity:1" d="M 72.207115,86.2746455 H 14.8655356 V 221.82588 229.4515 H 126.66794 l 11.12442,-11.12442 v 0 h 57.34221 V 128.67891 86.2746455 72.026905 H 86.454867 Z" transform="matrix(1.156342,0,0,0.8511195,-16.401075,29.551593)" /></g></svg>');
+    border-image-slice: 54 10 43 16;
+    border-image-width: 20px 20px 20px 20px;
+    border-image-outset: 0px 0px 0px 0px;
+    border-image-repeat: stretch stretch;
+    border-style: solid;
+  }
 }

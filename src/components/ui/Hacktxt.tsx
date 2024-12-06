@@ -1,42 +1,67 @@
-/*
-    TODO : add comments how it is working 
-*/
+import { useMemo, useRef, useState } from "react"
 
-import { useEffect, useRef, useState } from 'react';
-
-const Hacktxt = ({ children = "ERROR", className }) => {
-    const inTXT = useRef(children);
-    const [txt, setTxt] = useState(children);
-
-    useEffect(() => {
-        animate()
-    })
-
-    const randomChar = () => {
-        const chars = ' !"#$%&\'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~';
-        return chars[Math.round(Math.random() * chars.length)];
-    }
-
-    const runCount = useRef(0)
-    function animate() {
-
-        const intervalID = setInterval(() => {
-
-            setTxt(inTXT.current.split("").map((e, index) => {
-                if (index < runCount.current) return e
-                return randomChar()
-            }).join(""))
-
-            if (runCount.current >= inTXT.current.length) {
-                runCount.current = 0
-                clearInterval(intervalID)
-            }
-            runCount.current += 1 / 3
-        }, 30)
-    }
-
-
-    return <p onMouseOver={animate} className={`uppercase ${className}`}>{txt}</p>
+interface props {
+    text: string,
+    className?: string
 }
 
-export default Hacktxt;
+const Hacktxt = ({ text, className }: props) => {
+    const [txt, setTxt] = useState<string>(text)
+
+    //  get unicode char 
+    const charVec = useMemo(() => {
+        const Arr: Array<string> = []
+        for (let i = 0x3042; i < 0x3093; i++) {
+            Arr.push(String.fromCharCode(i))
+        }
+        return Arr
+    }, []);
+
+    // console.log(charVec)
+
+    // const getInnerText = (node: ReactNode): string => {
+    //     return Children.toArray(node).map((child) => {
+    //         if (isValidElement(child)) {
+    //             return child.props.value
+    //         } else if (typeof child === "string") {
+    //             return child
+    //         } else if (typeof child === "number") {
+    //             return child.toString()
+    //         }
+    //         return ""
+    //     }).join("").trim().split(">")[1].split("<")[0]
+    // }
+    // console.log(getInnerText(children))
+    const runCount = useRef(0)
+    const intervalRef = useRef<ReturnType<typeof setInterval>>()
+    const animation = () => {
+        if (!intervalRef.current) {
+            intervalRef.current = setInterval(() => {
+                setTxt(text.split("").map((char, index) => {
+                    if (index < runCount.current) return char
+                    return charVec[Math.round(Math.random() * charVec.length)]
+                }).join(""))
+
+                runCount.current += 1 / 3
+            }, 30);
+        }
+        
+        if (runCount.current >= text.length) {
+            if (intervalRef.current) {
+                clearInterval(intervalRef.current);
+                intervalRef.current = 0
+                runCount.current = 0
+            }
+        }
+    }
+
+    return <span className={className}
+        onTouchStart={animation}
+        onTouchEnd={animation}
+        onClick={animation}
+        onMouseOver={animation}
+        onMouseEnter={animation}
+        onMouseLeave={animation}
+    >{txt}</span>
+}
+export default Hacktxt

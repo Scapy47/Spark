@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Modal from "@/components/ui/Modal";
+import Hacktxt from "@/components/ui/Hacktxt";
 
 const CreateSequence = () => {
   const [showModal, setShowModal] = useState(false)
@@ -8,7 +9,7 @@ const CreateSequence = () => {
     <>
       <Modal Show={showModal} func={setShowModal} className="w-full h-full">
         <header className="mt-4">
-          <span className="text-2xl font-Orbitron text-primary">Create sequence</span>
+          <Hacktxt className="text-2xl font-Orbitron text-primary">Create sequence</Hacktxt>
         </header>
         <div>
           <label htmlFor="seqName" className="label text-secondary font-Orbitron font-extrabold">name</label>

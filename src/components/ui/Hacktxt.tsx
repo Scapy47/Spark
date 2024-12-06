@@ -1,12 +1,12 @@
-import { useMemo, useRef, useState } from "react"
+import {  useMemo, useRef, useState } from "react"
 
 interface props {
-    text: string,
+    children: string,
     className?: string
 }
 
-const Hacktxt = ({ text, className }: props) => {
-    const [txt, setTxt] = useState<string>(text)
+const Hacktxt = ({ children, className }: props) => {
+    const [txt, setTxt] = useState<string>(children)
 
     //  get unicode char 
     const charVec = useMemo(() => {
@@ -33,11 +33,11 @@ const Hacktxt = ({ text, className }: props) => {
     // }
     // console.log(getInnerText(children))
     const runCount = useRef(0)
-    const intervalRef = useRef<ReturnType<typeof setInterval>>()
+    const intervalRef = useRef<ReturnType<typeof setInterval>>(0)
     const animation = () => {
         if (!intervalRef.current) {
             intervalRef.current = setInterval(() => {
-                setTxt(text.split("").map((char, index) => {
+                setTxt(children.split("").map((char, index) => {
                     if (index < runCount.current) return char
                     return charVec[Math.round(Math.random() * charVec.length)]
                 }).join(""))
@@ -45,8 +45,8 @@ const Hacktxt = ({ text, className }: props) => {
                 runCount.current += 1 / 3
             }, 30);
         }
-        
-        if (runCount.current >= text.length) {
+
+        if (runCount.current >= children.length) {
             if (intervalRef.current) {
                 clearInterval(intervalRef.current);
                 intervalRef.current = 0
